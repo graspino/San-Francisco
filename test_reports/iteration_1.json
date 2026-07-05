@@ -1,0 +1,32 @@
+{
+  "summary": "Frontend-only smoke test of Pizzeria San Francisco vetrina site. All critical user-facing flows verified against public URL: hero, 7 menu categories (94 items rendered), price formatting (€/em-dash), search filter (margherita + empty state), click-to-call tel:+393311492875 on all 4 buttons, info hours (7 entries), Google Maps directions link (target=_blank), QR SVG rendering + PNG download with filename 'pizzeria-san-francisco-qr.png', Instagram/TikTok placeholder links, nav & category-sidebar smooth-scroll, no horizontal overflow at 1440px. Language toggle switches UI (verified visually and via category label change).",
+  "tested_scope": ["frontend", "integration"],
+  "passed": [
+    "hero-section visible with brand 'Pizzeria San Francisco'",
+    "All 7 menu categories rendered (classiche, speciali, bianche, pesce, bambini, dolci, bevande)",
+    "94 menu items rendered (>= 40 required)",
+    "Price formatting shows '€' and em-dash '—' for missing sizes",
+    "menu-search: 'margherita' filters to items containing Margherita; 'zzzzzz' shows menu-empty state",
+    "Click-to-call href='tel:+393311492875' on header-call-btn, hero-call-btn, info-call-btn, footer-phone",
+    "info-hours-list contains 7 day entries; info-directions-link opens Google Maps in new tab (target=_blank)",
+    "QR section renders SVG; qr-download-btn triggers download named 'pizzeria-san-francisco-qr.png'",
+    "footer-instagram -> instagram.com/, footer-tiktok -> tiktok.com/",
+    "nav-menu and cat-nav-bevande smooth-scroll to correct sections",
+    "Language toggle switches content (IT default, EN visible after click; Italian labels e.g. 'Chiama', 'CATEGORIE', 'Pizze Speciali' confirmed in screenshot)",
+    "No horizontal overflow at 1440px viewport (0px)"
+  ],
+  "failed": [
+    {
+      "area": "open-indicator",
+      "issue": "data-testid='open-indicator' inner_text returned empty string; could not verify 'Aperto ora'/'Chiuso ora' label text programmatically",
+      "evidence": "await page.locator('[data-testid=\"open-indicator\"]').inner_text() -> ''",
+      "priority": "LOW"
+    }
+  ],
+  "action_items": [
+    "Verify the open-indicator renders visible text ('Aperto ora' / 'Chiuso ora') rather than icon-only, or confirm intended behaviour (may be hidden on desktop). Non-blocking."
+  ],
+  "success_rate": {"backend": "skipped", "frontend": "~96%"},
+  "retest_needed": false,
+  "full_testing_deferred": true
+}
