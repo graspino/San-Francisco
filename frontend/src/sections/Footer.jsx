@@ -51,7 +51,7 @@ export default function Footer({ t, lang }) {
                   <div className="text-[10px] uppercase tracking-widest text-[hsl(var(--brand-cream))]/60">
                     {t.footer.instagram}
                   </div>
-                  <div className="truncate font-serif italic">@pizzeria-sf</div>
+                  <div className="truncate font-serif italic">SanFranciscoPizza_</div>
                 </div>
               </a>
 
@@ -68,7 +68,7 @@ export default function Footer({ t, lang }) {
                   <div className="text-[10px] uppercase tracking-widest text-[hsl(var(--brand-cream))]/60">
                     {t.footer.tiktok}
                   </div>
-                  <div className="truncate font-serif italic">@pizzeria-sf</div>
+                  <div className="truncate font-serif italic">SanFranciscoPizza_</div>
                 </div>
               </a>
 
