@@ -58,7 +58,7 @@ export default function Footer({ t, lang }) {
               {/* TikTok */}
               <a
                 data-testid="footer-tiktok"
-                href="https://tiktok.com/"
+                href="https://www.tiktok.com/@san.francisco.pizzeria?_r=1&_t=ZN-980DCTJC7cM"
                 target="_blank"
                 rel="noreferrer"
                 className="group flex items-center gap-3 rounded-md border border-[hsl(var(--brand-cream))]/15 bg-[hsl(var(--brand-cream))]/5 px-4 py-4 transition-colors hover:border-[hsl(var(--accent))] hover:bg-[hsl(var(--brand-cream))]/10"
