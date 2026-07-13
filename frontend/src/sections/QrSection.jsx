@@ -5,7 +5,7 @@ import { Button } from "../components/ui/button";
 
 export default function QrSection({ t, lang }) {
   const wrapRef = useRef(null);
-  const url = typeof window !== "undefined" ? window.location.origin + window.location.pathname : "https://pizzeriasanfrancisco.it";
+  const url = "https://san-francisco-omega-five.vercel.app";
 
   const handleDownload = useCallback(() => {
     const svg = wrapRef.current?.querySelector("svg");
@@ -58,8 +58,8 @@ export default function QrSection({ t, lang }) {
           </div>
           <div className="mt-6 max-w-md text-xs text-foreground/50">
             {lang === "it"
-              ? "Il QR punta all'indirizzo di questo sito. Cambia dominio quando il sito sarà pubblicato online."
-              : "The QR points to this site's URL. Update it once the site is deployed to a custom domain."}
+              ? "Il QR porta al sito ufficiale della pizzeria: san-francisco-omega-five.vercel.app"
+              : "The QR opens the pizzeria's official site: san-francisco-omega-five.vercel.app"}
           </div>
         </div>
 
