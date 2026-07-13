@@ -41,7 +41,7 @@ export default function Footer({ t, lang }) {
               {/* Instagram */}
               <a
                 data-testid="footer-instagram"
-                href="https://instagram.com/"
+                href="https://www.instagram.com/san_francisco_pizza?igsh=MWhsN3I0Z2R5cGl0cg=="
                 target="_blank"
                 rel="noreferrer"
                 className="group flex items-center gap-3 rounded-md border border-[hsl(var(--brand-cream))]/15 bg-[hsl(var(--brand-cream))]/5 px-4 py-4 transition-colors hover:border-[hsl(var(--accent))] hover:bg-[hsl(var(--brand-cream))]/10"
