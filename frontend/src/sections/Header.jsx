@@ -14,8 +14,12 @@ export default function Header({ lang, setLang, t }) {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-10">
         {/* Brand */}
         <a href="#top" data-testid="brand-link" className="group flex items-center gap-3">
-          <span className="grid h-9 w-9 place-items-center rounded-full bg-[hsl(var(--brand-terracotta))] text-[hsl(var(--brand-cream))] font-serif text-lg leading-none">
-            SF
+          <span className="grid h-10 w-10 place-items-center overflow-hidden rounded-full bg-[hsl(var(--brand-cream))] ring-1 ring-border">
+            <img
+              src="https://customer-assets.emergentagent.com/job_sanfran-pizzeria/artifacts/vnux44fh_logopizzeria.jpeg"
+              alt="Logo Pizzeria San Francisco"
+              className="h-full w-full object-cover"
+            />
           </span>
           <span className="hidden font-serif text-lg leading-none tracking-tight sm:block">
             Pizzeria <span className="italic text-[hsl(var(--brand-terracotta))]">San Francisco</span>
