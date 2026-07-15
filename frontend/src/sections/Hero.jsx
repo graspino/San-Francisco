@@ -1,4 +1,3 @@
-📄 File 2: frontend/src/i18n/dict.js
 export const dict = {
   it: {
     nav: { menu: "Menu", info: "Info", qr: "QR Code", contact: "Contatti" },
