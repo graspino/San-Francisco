@@ -1,3 +1,89 @@
+📄 File 2: frontend/src/i18n/dict.js
+export const dict = {
+  it: {
+    nav: { menu: "Menu", info: "Info", qr: "QR Code", contact: "Contatti" },
+    cta: { call: "Prenota / Chiama", callShort: "Chiama" },
+    hero: {
+      eyebrow: "Il tuo asporto di fiducia dal 2006",
+      title1: "Pizzeria",
+      title2: "San Francisco",
+      subtitle: "Pizza artigianale nel forno a legna, ingredienti di stagione e sapori veri. Il tuo asporto di fiducia a San Vito al Mantico.",
+      viewMenu: "Sfoglia il menu",
+      callNow: "Chiama ora",
+    },
+    menu: {
+      title: "Il nostro Menu",
+      subtitle: "Oltre 70 pizze cotte nel forno a legna. Prezzi per porzione.",
+      cols: { tonda: "Tonda", taglio: "Taglio", maxi: "Maxi" },
+      note: "*Prodotti che possono essere surgelati all'origine. Chiedere allo staff per informazioni sugli allergeni.",
+      searchPlaceholder: "Cerca una pizza...",
+    },
+    info: {
+      title: "Info & Orari",
+      address: "Indirizzo",
+      phone: "Telefono",
+      hours: "Orari di apertura",
+      closed: "Chiuso",
+      openTag: "Aperto ora",
+      closedTag: "Chiuso ora",
+    },
+    qr: {
+      title: "Porta il menu con te",
+      subtitle: "Scarica il QR code, stampalo o mostralo. Chiunque potrà consultare il menu sul proprio telefono.",
+      download: "Scarica il QR",
+    },
+    footer: {
+      follow: "Seguici",
+      instagram: "Instagram",
+      tiktok: "TikTok",
+      call: "Chiamaci",
+      built: "Fatto con cura per i buongustai di San Vito al Mantico.",
+      copyright: "© 2025 Pizzeria San Francisco. Tutti i diritti riservati.",
+    },
+  },
+  en: {
+    nav: { menu: "Menu", info: "Info", qr: "QR Code", contact: "Contact" },
+    cta: { call: "Book / Call", callShort: "Call" },
+    hero: {
+      eyebrow: "Your trusted takeaway since 2006",
+      title1: "Pizzeria",
+      title2: "San Francisco",
+      subtitle: "Handcrafted wood-fired pizza with seasonal ingredients and authentic flavours. Your trusted takeaway in San Vito al Mantico.",
+      viewMenu: "See the menu",
+      callNow: "Call now",
+    },
+    menu: {
+      title: "Our Menu",
+      subtitle: "Over 70 pizzas from our wood-fired oven. Prices per portion.",
+      cols: { tonda: "Round", taglio: "By the slice", maxi: "Family" },
+      note: "*Ingredients that may be frozen at source. Ask our staff for allergen information.",
+      searchPlaceholder: "Search a pizza...",
+    },
+    info: {
+      title: "Info & Hours",
+      address: "Address",
+      phone: "Phone",
+      hours: "Opening hours",
+      closed: "Closed",
+      openTag: "Open now",
+      closedTag: "Closed now",
+    },
+    qr: {
+      title: "Take the menu with you",
+      subtitle: "Download the QR code, print it or show it. Anyone can view the menu on their phone.",
+      download: "Download QR",
+    },
+    footer: {
+      follow: "Follow us",
+      instagram: "Instagram",
+      tiktok: "TikTok",
+      call: "Call us",
+      built: "Made with love for the good eaters of San Vito al Mantico.",
+      copyright: "© 2025 Pizzeria San Francisco. All rights reserved.",
+    },
+  },
+};
+📄 File 3: frontend/src/sections/Hero.jsx
 import React from "react";
 import { Phone, UtensilsCrossed, ArrowRight } from "lucide-react";
 import { Button } from "../components/ui/button";
@@ -9,13 +95,24 @@ export default function Hero({ t }) {
       <div className="grain relative mx-auto grid max-w-7xl grid-cols-1 gap-8 px-5 pt-10 pb-16 md:grid-cols-12 md:gap-12 md:px-10 md:pt-16 md:pb-24">
         {/* Left: Text */}
         <div className="relative z-10 md:col-span-7 flex flex-col justify-center">
-          <span
-            data-testid="hero-eyebrow"
-            className="mb-6 inline-flex w-fit items-center gap-2 border-l-2 border-[hsl(var(--brand-terracotta))] pl-3 text-xs font-medium uppercase tracking-[0.24em] text-[hsl(var(--brand-terracotta))]"
-          >
-            <span className="h-1.5 w-1.5 rounded-full bg-[hsl(var(--brand-terracotta))]"></span>
-            {t.hero.eyebrow}
-          </span>
+          {/* Circular logo above title */}
+          <div className="mb-6 flex items-center gap-4">
+            <span className="grid h-20 w-20 md:h-24 md:w-24 place-items-center overflow-hidden rounded-full bg-[hsl(var(--brand-cream))] ring-1 ring-border shadow-sm">
+              <img
+                src="https://customer-assets.emergentagent.com/job_sanfran-pizzeria/artifacts/vnux44fh_logopizzeria.jpeg"
+                alt="Logo Pizzeria San Francisco"
+                className="h-full w-full object-cover"
+                loading="eager"
+              />
+            </span>
+            <span
+              data-testid="hero-eyebrow"
+              className="inline-flex w-fit items-center gap-2 border-l-2 border-[hsl(var(--brand-terracotta))] pl-3 text-xs font-medium uppercase tracking-[0.24em] text-[hsl(var(--brand-terracotta))]"
+            >
+              <span className="h-1.5 w-1.5 rounded-full bg-[hsl(var(--brand-terracotta))]"></span>
+              {t.hero.eyebrow}
+            </span>
+          </div>
 
           <h1 data-testid="hero-title" className="font-serif text-5xl leading-[0.95] tracking-tight md:text-7xl lg:text-8xl">
             {t.hero.title1}
