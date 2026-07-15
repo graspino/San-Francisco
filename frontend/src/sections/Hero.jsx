@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Phone, UtensilsCrossed, ArrowRight } from "lucide-react";
 import { Button } from "../components/ui/button";
 import { info } from "../data/menu";
@@ -42,11 +43,11 @@ export default function Hero({ t }) {
               asChild
               className="rounded-full bg-[hsl(var(--brand-ink))] px-6 py-6 text-[hsl(var(--brand-cream))] shadow-none hover:bg-[hsl(var(--brand-ink))]/90"
             >
-              <a href="#menu">
+              <Link to="/menu">
                 <UtensilsCrossed className="mr-2 h-4 w-4" />
                 {t.hero.viewMenu}
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-              </a>
+              </Link>
             </Button>
             <Button
               data-testid="hero-call-btn"
