@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Phone, Globe } from "lucide-react";
 import { Button } from "../components/ui/button";
 import { info } from "../data/menu";
@@ -28,9 +29,9 @@ export default function Header({ lang, setLang, t }) {
 
         {/* Nav */}
         <nav className="hidden items-center gap-8 md:flex">
-          <a data-testid="nav-menu" href="#menu" className="text-sm uppercase tracking-widest text-foreground/80 hover:text-[hsl(var(--brand-terracotta))] transition-colors">
+          <Link data-testid="nav-menu" to="/menu" className="text-sm uppercase tracking-widest text-foreground/80 hover:text-[hsl(var(--brand-terracotta))] transition-colors">
             {t.nav.menu}
-          </a>
+          </Link>
           <a data-testid="nav-info" href="#info" className="text-sm uppercase tracking-widest text-foreground/80 hover:text-[hsl(var(--brand-terracotta))] transition-colors">
             {t.nav.info}
           </a>
