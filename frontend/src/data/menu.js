@@ -135,8 +135,8 @@ export const info = {
     { day_it: "Martedì", day_en: "Tuesday", slots: ["18:00 – 21:30"] },
     { day_it: "Mercoledì", day_en: "Wednesday", slots: ["18:00 – 21:30"] },
     { day_it: "Giovedì", day_en: "Thursday", slots: ["18:00 – 21:30"] },
-    { day_it: "Venerdì", day_en: "Friday", slots: ["18:00 – 21:30"] },
-    { day_it: "Sabato", day_en: "Saturday", slots: ["18:00 – 21:30"] },
+    { day_it: "Venerdì", day_en: "Friday", slots: ["18:00 – 22:00"] },
+    { day_it: "Sabato", day_en: "Saturday", slots: ["18:00 – 22:00"] },
     { day_it: "Domenica", day_en: "Sunday", slots: ["18:00 – 21:30"] },
   ],
 };
