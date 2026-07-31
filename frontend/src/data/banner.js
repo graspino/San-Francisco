@@ -1,6 +1,6 @@
 export const banner = {
   active: true,                          // metti false per nasconderlo
-  from: "2026-7-31",                    // data inizio (opzionale)
+  from: "2026-7-30",                    // data inizio (opzionale)
   until: "2025-1-9",                   // data fine — dopo sparisce da solo
   color: "green",                        // "green" | "terracotta" | "dark"
   message_it: "Per il mese di agosto la pizzeria svolgerà solo orario serale",
