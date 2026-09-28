@@ -61,7 +61,8 @@ export default function Header({ lang, setLang, t }) {
             <button
               data-testid="lang-toggle"
               onClick={toggleLang}
-              className="group flex items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs font-medium uppercase tracking-widest text-foreground/80 hover:border-[hsl(var(--brand-terracotta))] hover:text-[hsl(var(--brand-terracotta))] transition-all"
+              className="group hidden md:flex items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs font-medium uppercase tracking-widest text-foreground/80 hover:border-[hsl(var(--brand-terracotta))] hover:text-[hsl(var(--brand-terracotta))] transition-all"
+
               aria-label="Toggle language"
             >
               <Globe className="h-3.5 w-3.5" />
