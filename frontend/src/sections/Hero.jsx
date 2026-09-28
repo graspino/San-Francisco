@@ -9,8 +9,8 @@ export default function Hero({ t }) {
     <section id="top" data-testid="hero-section" className="relative overflow-hidden">
       <div className="grain relative mx-auto grid max-w-7xl grid-cols-1 gap-8 px-5 pt-10 pb-16 md:grid-cols-12 md:gap-12 md:px-10 md:pt-16 md:pb-24">
         <div className="relative z-10 md:col-span-7 flex flex-col justify-center">
-          <div className="mb-6 flex items-center gap-4">
-            <span className="grid h-20 w-20 md:h-24 md:w-24 place-items-center overflow-hidden rounded-full bg-[hsl(var(--brand-cream))] ring-1 ring-border shadow-sm">
+          <div className="mb-4 md:mb-6 flex items-center gap-4">
+            <span className="hidden md:grid h-24 w-24 place-items-center overflow-hidden rounded-full bg-[hsl(var(--brand-cream))] ring-1 ring-border shadow-sm">
               <img
                 src="https://customer-assets.emergentagent.com/job_sanfran-pizzeria/artifacts/vnux44fh_logopizzeria.jpeg"
                 alt="Logo Pizzeria San Francisco"
@@ -20,18 +20,35 @@ export default function Hero({ t }) {
             </span>
             <span
               data-testid="hero-eyebrow"
-              className="inline-flex w-fit items-center gap-2 border-l-2 border-[hsl(var(--brand-terracotta))] pl-3 text-xs font-medium uppercase tracking-[0.24em] text-[hsl(var(--brand-terracotta))]"
+              className="inline-flex w-fit items-center gap-3 text-[11px] md:text-xs font-medium uppercase tracking-[0.22em] md:tracking-[0.24em] text-[hsl(var(--brand-terracotta))]"
             >
-              <span className="h-1.5 w-1.5 rounded-full bg-[hsl(var(--brand-terracotta))]"></span>
+              <span
+                aria-hidden
+                className="inline-flex h-5 w-1.5 overflow-hidden rounded-full ring-1 ring-border/60 flex-shrink-0"
+              >
+                <span className="h-full w-1/3 bg-[#0F8A4E]" />
+                <span className="h-full w-1/3 bg-white" />
+                <span className="h-full w-1/3 bg-[#C0392B]" />
+              </span>
               {t.hero.eyebrow}
             </span>
           </div>
 
-          <h1 data-testid="hero-title" className="font-serif text-5xl leading-[0.95] tracking-tight md:text-7xl lg:text-8xl">
-            {t.hero.title1}
-            <br />
-            <span className="italic text-[hsl(var(--brand-terracotta))]">{t.hero.title2}</span>
-          </h1>
+          <div className="flex items-start justify-between gap-4">
+            <h1 data-testid="hero-title" className="font-serif text-6xl leading-[0.95] tracking-tight md:text-7xl lg:text-8xl">
+              {t.hero.title1}
+              <br />
+              <span className="italic text-[hsl(var(--brand-terracotta))]">{t.hero.title2}</span>
+            </h1>
+            <span className="mt-1 grid h-24 w-24 md:hidden place-items-center overflow-hidden rounded-full bg-[hsl(var(--brand-cream))] ring-1 ring-border shadow-sm flex-shrink-0">
+              <img
+                src="https://customer-assets.emergentagent.com/job_sanfran-pizzeria/artifacts/vnux44fh_logopizzeria.jpeg"
+                alt="Logo Pizzeria San Francisco"
+                className="h-full w-full object-cover"
+                loading="eager"
+              />
+            </span>
+          </div>
 
           <p className="mt-6 max-w-md text-base leading-relaxed text-foreground/75 md:text-lg">
             {t.hero.subtitle}
@@ -71,7 +88,7 @@ export default function Hero({ t }) {
           </div>
         </div>
 
-        <div className="relative md:col-span-5">
+        <div className="relative hidden md:block md:col-span-5">
           <div className="relative aspect-[4/5] w-full overflow-hidden rounded-md border border-border">
             <img
               src="https://images.pexels.com/photos/29626982/pexels-photo-29626982.jpeg"
