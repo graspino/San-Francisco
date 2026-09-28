@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, Phone, Globe } from "lucide-react";
 import { Button } from "../components/ui/button";
 import Menu from "../sections/Menu";
+import Banner from "../sections/Banner";
 import { dict } from "../i18n/dict";
 import { info } from "../data/menu";
 
@@ -13,6 +14,7 @@ export default function MenuPage() {
 
   return (
     <div data-testid="menu-page" className="min-h-screen bg-background text-foreground">
+      <Banner lang={lang} setLang={setLang} />
       <header
         data-testid="menu-page-header"
         className="sticky top-0 z-40 border-b border-border/70 bg-background/85 backdrop-blur-md"
@@ -44,7 +46,7 @@ export default function MenuPage() {
             <button
               data-testid="menu-page-lang-toggle"
               onClick={toggleLang}
-              className="group flex items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs font-medium uppercase tracking-widest text-foreground/80 hover:border-[hsl(var(--brand-terracotta))] hover:text-[hsl(var(--brand-terracotta))] transition-all"
+              className="group hidden md:flex items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs font-medium uppercase tracking-widest text-foreground/80 hover:border-[hsl(var(--brand-terracotta))] hover:text-[hsl(var(--brand-terracotta))] transition-all"
               aria-label="Toggle language"
             >
               <Globe className="h-3.5 w-3.5" />
