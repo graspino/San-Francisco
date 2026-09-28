@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Banner from "./sections/Banner";
 import Header from "./sections/Header";
 import Hero from "./sections/Hero";
 import Info from "./sections/Info";
@@ -15,6 +16,7 @@ function HomePage() {
 
   return (
     <div data-testid="home-page" className="min-h-screen bg-background text-foreground">
+      <Banner lang={lang} setLang={setLang} />
       <Header lang={lang} setLang={setLang} t={t} />
       <main>
         <Hero t={t} />
