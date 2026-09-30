@@ -1,132 +1,107 @@
-// Full menu of Pizzeria San Francisco — parsed from INTERNO 2024-25.pdf
+Ecco il file completo e aggiornato con la struttura esatta per il lancio del nuovo menù.
+
+* Le vecchie categorie sono state sostituite con le nuove sezioni: "I Grandi Classici", "Le Nostre Storiche Rivisitate" e "Le Specialità San Francisco".
+
+
+* È stata creata una categoria specifica per "Le Aggiunte" e aggiornata la lista de "Le Bibite".
+
+
+* I prezzi sono stati allineati ai nuovi formati per le varianti Tonda e Maxi. Il valore `taglio` è stato mantenuto a `null` ovunque per non rompere il design dell'interfaccia, in quanto non presente nel listino di ottobre.
+
+
+* Tutti i nuovi ingredienti (come la crema di burrata pugliese, il cremoso di zucca e l'origano Wiberg) sono stati tradotti in inglese per mantenere funzionante il sistema bilingue del sito.
+
+
+
+Copia tutto il blocco di codice qui sotto e incollalo sostituendo interamente il contenuto del tuo file `menu.js` (o `menu.ts`).
+
+```javascript
+// Full menu of Pizzeria San Francisco — updated for October 1st Launch
 // Prices in EUR. When a size is not offered, use null.
-// Sizes: tonda (round pizza), taglio (by the slice / al taglio), maxi (large family)
+// Sizes: tonda (round pizza), taglio (by the slice), maxi (large family)
 
 export const menuCategories = [
-  { id: "classiche", it: "Pizze Classiche", en: "Classic Pizzas" },
-  { id: "speciali", it: "Pizze Speciali", en: "Specialty Pizzas" },
-  { id: "bianche", it: "Pizze Bianche", en: "White Pizzas" },
-  { id: "pesce", it: "Pizze con Pesce", en: "Seafood Pizzas" },
-  { id: "bambini", it: "Pizze per Bambini", en: "Kids' Pizzas" },
-  { id: "dolci", it: "Dolci", en: "Desserts" },
-  { id: "bevande", it: "Bevande", en: "Drinks" },
+  { id: "classici", it: "I Grandi Classici", en: "The Great Classics" },
+  { id: "storiche", it: "Le Nostre Storiche Rivisitate", en: "Historic Revisited" },
+  { id: "specialita", it: "Le Specialità San Francisco", en: "San Francisco Specialties" },
+  { id: "aggiunte", it: "Le Aggiunte", en: "Extras & Additions" },
+  { id: "bibite", it: "Le Bibite", en: "Drinks" },
 ];
 
-// ingredients_it / ingredients_en. We translate ingredients descriptively.
 export const menu = {
-  classiche: [
-    { name: "Margherita", it: "pomodoro, mozzarella", en: "tomato, mozzarella", tonda: 6.0, taglio: 6.0, maxi: 22.0 },
-    { name: "Al Crudo", it: "pomodoro, mozzarella, prosciutto crudo", en: "tomato, mozzarella, cured ham", tonda: 9.5, taglio: 8.0, maxi: 32.0 },
-    { name: "Marinara", it: "pomodoro, aglio, origano", en: "tomato, garlic, oregano", tonda: 3.5, taglio: 7.0, maxi: null },
-    { name: "Calzone", it: "pomodoro, mozzarella, prosciutto cotto, champignon", en: "tomato, mozzarella, cooked ham, champignon mushrooms", tonda: 8.5, taglio: null, maxi: null },
-    { name: "Calzone Farcito", it: "pomodoro, mozzarella, prosciutto cotto, champignon, ricotta", en: "tomato, mozzarella, cooked ham, champignon, ricotta", tonda: 9.5, taglio: null, maxi: null },
-    { name: "Calzone ai Formaggi", it: "mozzarella, gorgonzola, emmental, ricotta, grana", en: "mozzarella, gorgonzola, emmental, ricotta, grana", tonda: 10.0, taglio: null, maxi: null },
-    { name: "Capricciosa", it: "pomodoro, mozzarella, prosciutto cotto, champignon, carciofi, olive nere, capperi", en: "tomato, mozzarella, cooked ham, mushrooms, artichokes, black olives, capers", tonda: 9.5, taglio: 7.5, maxi: 28.0 },
-    { name: "Cotto", it: "pomodoro, mozzarella, prosciutto cotto", en: "tomato, mozzarella, cooked ham", tonda: 7.5, taglio: 7.5, maxi: 23.0 },
-    { name: "Cotto e Funghi", it: "pomodoro, mozzarella, prosciutto cotto, champignon", en: "tomato, mozzarella, cooked ham, champignon", tonda: 8.5, taglio: 7.5, maxi: 25.0 },
-    { name: "Cotto e Wurstel", it: "pomodoro, mozzarella, prosciutto cotto, wurstel", en: "tomato, mozzarella, cooked ham, hot dog", tonda: 9.0, taglio: 7.5, maxi: 25.0 },
-    { name: "Cotto e Carciofi", it: "pomodoro, mozzarella, prosciutto cotto, carciofi", en: "tomato, mozzarella, cooked ham, artichokes", tonda: 9.0, taglio: 7.5, maxi: 25.0 },
-    { name: "Napoletana", it: "pomodoro, mozzarella, acciughe, origano", en: "tomato, mozzarella, anchovies, oregano", tonda: 7.5, taglio: 7.5, maxi: 24.0 },
-    { name: "Ortolana", it: "pomodoro, mozzarella, melanzane, zucchine, radicchio, peperoni, grana", en: "tomato, mozzarella, aubergine, zucchini, radicchio, peppers, grana cheese", tonda: 9.0, taglio: 7.5, maxi: 23.0 },
-    { name: "Pugliese", it: "pomodoro, mozzarella, cipolla rossa", en: "tomato, mozzarella, red onion", tonda: 7.0, taglio: 7.5, maxi: 23.0 },
-    { name: "Quattro Formaggi", it: "pomodoro, mozzarella, gorgonzola, emmental, grana", en: "tomato, mozzarella, gorgonzola, emmental, grana", tonda: 9.5, taglio: 7.5, maxi: 30.0 },
-    { name: "Quattro Stagioni", it: "pomodoro, mozzarella, prosciutto cotto, champignon, carciofi, olive nere", en: "tomato, mozzarella, cooked ham, mushrooms, artichokes, black olives", tonda: 8.5, taglio: 7.5, maxi: 25.0 },
-    { name: "Romana", it: "pomodoro, mozzarella, acciughe, capperi, origano", en: "tomato, mozzarella, anchovies, capers, oregano", tonda: 8.0, taglio: 7.5, maxi: 25.0 },
-    { name: "Salamino Piccante", it: "pomodoro, mozzarella, salame piccante", en: "tomato, mozzarella, spicy salami", tonda: 7.5, taglio: 7.5, maxi: 23.0 },
-    { name: "Siciliana", it: "pomodoro, mozzarella, acciughe, capperi, olive nere, origano", en: "tomato, mozzarella, anchovies, capers, black olives, oregano", tonda: 8.5, taglio: 7.5, maxi: 26.0 },
-    { name: "Tonno e Cipolla", it: "pomodoro, mozzarella, tonno, cipolla rossa", en: "tomato, mozzarella, tuna, red onion", tonda: 8.5, taglio: 7.5, maxi: 25.0 },
+  classici: [
+    { name: "Schiacciata", it: "Base di pasta farcita a crudo, olio EVO", en: "Pizza base with fresh toppings, EVO oil", tonda: 3.5, taglio: null, maxi: null },
+    { name: "Marinara", it: "Doppia salsa di pomodoro, origano Wiberg, aglio, olio EVO", en: "Double tomato sauce, Wiberg oregano, garlic, EVO oil", tonda: 4.5, taglio: null, maxi: null },
+    { name: "Margherita", it: "Polpa di pomodoro, fior di latte, basilico fresco", en: "Tomato pulp, fior di latte, fresh basil", tonda: 6.0, taglio: null, maxi: 22.0 },
+    { name: "Funghi", it: "Polpa di pomodoro, fior di latte, champignon freschi", en: "Tomato pulp, fior di latte, fresh champignon mushrooms", tonda: 7.0, taglio: null, maxi: 24.0 },
+    { name: "Prosciutto Cotto", it: "Polpa di pomodoro, fior di latte, prosciutto cotto", en: "Tomato pulp, fior di latte, cooked ham", tonda: 7.5, taglio: null, maxi: 25.0 },
+    { name: "Würstel", it: "Polpa di pomodoro, fior di latte, würstel", en: "Tomato pulp, fior di latte, hot dog", tonda: 7.5, taglio: null, maxi: 25.0 },
+    { name: "Chips", it: "Polpa di pomodoro, fior di latte, patatine fritte", en: "Tomato pulp, fior di latte, french fries", tonda: 7.5, taglio: null, maxi: 25.0 },
+    { name: "Salamino Piccante", it: "Polpa di pomodoro, fior di latte, salamino piccante", en: "Tomato pulp, fior di latte, spicy salami", tonda: 7.5, taglio: null, maxi: 25.0 },
+    { name: "Tastasal", it: "Polpa di pomodoro, fior di latte, tastasal", en: "Tomato pulp, fior di latte, tastasal (local sausage)", tonda: 7.5, taglio: null, maxi: 25.0 },
+    { name: "Crudo", it: "Polpa di pomodoro, fior di latte, prosciutto crudo stagionato", en: "Tomato pulp, fior di latte, aged cured ham", tonda: 9.0, taglio: null, maxi: 29.0 },
+    { name: "Bufala Campana DOP", it: "Polpa di pomodoro, mozzarella di bufala, basilico fresco, Olio EVO", en: "Tomato pulp, buffalo mozzarella, fresh basil, EVO oil", tonda: 8.0, taglio: null, maxi: 26.0 },
+    { name: "Prosciutto e Funghi", it: "Polpa di pomodoro, fior di latte, prosciutto cotto, champignon freschi", en: "Tomato pulp, fior di latte, cooked ham, fresh champignon mushrooms", tonda: 8.5, taglio: null, maxi: 28.0 },
+    { name: "Tonno e Cipolla Caramellata", it: "Polpa di pomodoro, fior di latte, tonno in olio EVO, cipolla rossa caramellata", en: "Tomato pulp, fior di latte, tuna in EVO oil, caramelized red onion", tonda: 8.5, taglio: null, maxi: 27.0 },
+    { name: "Napoletana", it: "Polpa di pomodoro, fior di latte, filetti di acciughe, capperi, origano Wiberg", en: "Tomato pulp, fior di latte, anchovy fillets, capers, Wiberg oregano", tonda: 8.0, taglio: null, maxi: 26.0 },
+    { name: "Vegetariana", it: "Polpa di pomodoro, fior di latte, melanzane e zucchine al forno, friarielli, radicchio stufato al vino", en: "Tomato pulp, fior di latte, roasted aubergines and zucchini, friarielli, wine-stewed radicchio", tonda: 9.5, taglio: null, maxi: 30.0 },
+    { name: "Cinque Formaggi", it: "Polpa di pomodoro, fior di latte, gorgonzola, ricotta fresca, Philadelphia, Grana Padano DOP grattugiato", en: "Tomato pulp, fior di latte, gorgonzola, fresh ricotta, cream cheese, grated Grana Padano DOP", tonda: 9.5, taglio: null, maxi: 30.0 },
+    { name: "Quattro Salumi", it: "Polpa di pomodoro, fior di latte, salamino piccante, tastasal, würstel, prosciutto cotto", en: "Tomato pulp, fior di latte, spicy salami, tastasal, hot dog, cooked ham", tonda: 10.0, taglio: null, maxi: 32.0 },
+    { name: "Capricciosa", it: "Polpa di pomodoro, fior di latte, prosciutto cotto, champignon freschi, carciofi a fette, capperi, olive Leccino denocciolate", en: "Tomato pulp, fior di latte, cooked ham, fresh champignon, sliced artichokes, capers, pitted Leccino olives", tonda: 10.0, taglio: null, maxi: 32.0 },
+    { name: "Calzone", it: "Polpa di pomodoro, fior di latte, prosciutto cotto, champignon freschi, ricotta fresca", en: "Tomato pulp, fior di latte, cooked ham, fresh champignon, fresh ricotta", tonda: 9.5, taglio: null, maxi: null },
   ],
-  speciali: [
-    { name: "Alessandro", it: "pomodoro, mozzarella, porcini, grana, speck", en: "tomato, mozzarella, porcini mushrooms, grana, speck", tonda: 10.5, taglio: 8.0, maxi: 32.0 },
-    { name: "Angelika", it: "pomodoro, mozzarella, zucchine, philadelphia, salame piccante, pomodorini cirio", en: "tomato, mozzarella, zucchini, cream cheese, spicy salami, cherry tomatoes", tonda: 10.0, taglio: 7.5, maxi: 30.0 },
-    { name: "Braccio di Ferro", it: "pomodoro, mozzarella, spinaci*, ricotta, grana", en: "tomato, mozzarella, spinach*, ricotta, grana", tonda: 8.5, taglio: 7.5, maxi: 25.0 },
-    { name: "Bufalina", it: "pomodoro, mozzarella di bufala, basilico", en: "tomato, buffalo mozzarella, basil", tonda: 8.5, taglio: 7.5, maxi: 26.0 },
-    { name: "Cacio e Pepe", it: "pomodoro, mozzarella, pecorino, pepe", en: "tomato, mozzarella, pecorino, pepper", tonda: 7.0, taglio: 7.5, maxi: 24.0 },
-    { name: "Ca' Filippi", it: "pomodoro, mozzarella, funghi chiodini, brie, wurstel", en: "tomato, mozzarella, honey mushrooms, brie, hot dog", tonda: 9.5, taglio: 7.5, maxi: 28.0 },
-    { name: "Carbonara", it: "pomodoro, mozzarella, pancetta stufata, uovo, pecorino, pepe", en: "tomato, mozzarella, braised bacon, egg, pecorino, pepper", tonda: 9.0, taglio: null, maxi: 27.0 },
-    { name: "Calvetti", it: "pomodoro, mozzarella, ricotta, prosciutto cotto, scaglie di grana a fine cottura", en: "tomato, mozzarella, ricotta, cooked ham, grana flakes", tonda: 9.5, taglio: 7.5, maxi: 28.0 },
-    { name: "Casanova", it: "pomodoro, mozzarella, melanzane, porcini, salame piccante, grana a scaglie", en: "tomato, mozzarella, aubergine, porcini, spicy salami, grana flakes", tonda: 10.0, taglio: 7.5, maxi: 30.0 },
-    { name: "Casotton", it: "pomodoro, mozzarella, spinaci*, philadelphia, speck", en: "tomato, mozzarella, spinach*, cream cheese, speck", tonda: 10.5, taglio: 7.5, maxi: 32.0 },
-    { name: "Chiarly", it: "pomodoro, mozzarella, salame piccante, gorgonzola, aglio, origano", en: "tomato, mozzarella, spicy salami, gorgonzola, garlic, oregano", tonda: 8.5, taglio: 7.5, maxi: 26.0 },
-    { name: "Colombara", it: "pomodoro, mozzarella, radicchio rosso, taleggio", en: "tomato, mozzarella, red radicchio, taleggio", tonda: 8.0, taglio: 7.5, maxi: 24.0 },
-    { name: "Contessa", it: "pomodoro, mozzarella, cipolla rossa, zucchine, salsiccia", en: "tomato, mozzarella, red onion, zucchini, sausage", tonda: 9.0, taglio: 7.5, maxi: 27.0 },
-    { name: "Daniele", it: "pomodoro, mozzarella, gorgonzola, cipolla rossa, speck", en: "tomato, mozzarella, gorgonzola, red onion, speck", tonda: 10.5, taglio: 8.0, maxi: 32.0 },
-    { name: "Delicata", it: "pomodoro, mozzarella, zucchine grigliate, stracchino", en: "tomato, mozzarella, grilled zucchini, stracchino", tonda: 8.5, taglio: 7.5, maxi: 26.0 },
-    { name: "Delizia", it: "pomodoro, mozzarella, prosciutto cotto, funghi misto bosco, salame piccante", en: "tomato, mozzarella, cooked ham, forest mushrooms, spicy salami", tonda: 9.5, taglio: 7.5, maxi: 28.0 },
-    { name: "Diavola", it: "pomodoro, mozzarella, salame piccante, peperoni grigliati, grana, peperoncino", en: "tomato, mozzarella, spicy salami, grilled peppers, grana, chili", tonda: 9.0, taglio: 7.5, maxi: 27.0 },
-    { name: "Duemila", it: "pomodoro, mozzarella, funghi chiodini, philadelphia, speck", en: "tomato, mozzarella, honey mushrooms, cream cheese, speck", tonda: 10.5, taglio: 8.0, maxi: 32.0 },
-    { name: "Estate", it: "pomodoro, mozzarella, pomodorini cirio, rucola", en: "tomato, mozzarella, cherry tomatoes, rocket", tonda: 8.0, taglio: 7.5, maxi: 24.0 },
-    { name: "Faval", it: "pomodoro, mozzarella, gorgonzola, mascarpone, noci", en: "tomato, mozzarella, gorgonzola, mascarpone, walnuts", tonda: 9.5, taglio: 7.5, maxi: 28.0 },
-    { name: "Genoveffa", it: "pomodoro, mozzarella, grana, origano", en: "tomato, mozzarella, grana, oregano", tonda: 7.5, taglio: 7.5, maxi: 24.0 },
-    { name: "Giulia", it: "pomodoro, mozzarella, zucchine grigliate, funghi chiodini, philadelphia", en: "tomato, mozzarella, grilled zucchini, honey mushrooms, cream cheese", tonda: 9.0, taglio: 7.5, maxi: 27.0 },
-    { name: "Halloween", it: "crema di zucca, mozzarella, salsiccia, pecorino, erba cipollina", en: "pumpkin cream, mozzarella, sausage, pecorino, chives", tonda: 9.0, taglio: 7.5, maxi: 27.0 },
-    { name: "Hellas", it: "pomodoro, mozzarella, prosciutto cotto, patate al forno, zucchine, stracchino", en: "tomato, mozzarella, cooked ham, roasted potatoes, zucchini, stracchino", tonda: 10.0, taglio: 7.5, maxi: 30.0 },
-    { name: "Karamba", it: "pomodoro, mozzarella, salame piccante, pancetta stufata, fagioli rossi, cipolla rossa, peperoncino", en: "tomato, mozzarella, spicy salami, braised bacon, red beans, red onion, chili", tonda: 9.5, taglio: 7.5, maxi: 30.0 },
-    { name: "Kevin", it: "pomodoro, mozzarella, patate al forno, salsiccia, philadelphia", en: "tomato, mozzarella, roasted potatoes, sausage, cream cheese", tonda: 9.0, taglio: 7.5, maxi: 27.0 },
-    { name: "Nicole", it: "pomodoro, mozzarella, radicchio rosso, salsiccia, gorgonzola", en: "tomato, mozzarella, red radicchio, sausage, gorgonzola", tonda: 9.0, taglio: 7.5, maxi: 27.0 },
-    { name: "Paolo", it: "pomodoro, mozzarella, prosciutto cotto, champignon, salame piccante, wurstel, zucchine", en: "tomato, mozzarella, cooked ham, mushrooms, spicy salami, hot dog, zucchini", tonda: 9.5, taglio: 7.5, maxi: 30.0 },
-    { name: "Parmigiana", it: "pomodoro, mozzarella, melanzane grigliate, grana", en: "tomato, mozzarella, grilled aubergine, grana", tonda: 8.0, taglio: 7.5, maxi: 24.0 },
-    { name: "Pulcinella", it: "pomodoro, mozzarella, prosciutto cotto, salsiccia, gorgonzola, brie", en: "tomato, mozzarella, cooked ham, sausage, gorgonzola, brie", tonda: 10.0, taglio: 7.5, maxi: 30.0 },
-    { name: "Quattro Salumi", it: "pomodoro, mozzarella, salame piccante, wurstel, salsiccia, pancetta stufata", en: "tomato, mozzarella, spicy salami, hot dog, sausage, braised bacon", tonda: 10.0, taglio: 7.5, maxi: 30.0 },
-    { name: "Radicchiotto", it: "pomodoro, mozzarella, radicchio rosso, prosciutto cotto", en: "tomato, mozzarella, red radicchio, cooked ham", tonda: 8.0, taglio: 7.5, maxi: 24.0 },
-    { name: "Rustica", it: "pomodoro, mozzarella, patate al forno, salsiccia, gorgonzola", en: "tomato, mozzarella, roasted potatoes, sausage, gorgonzola", tonda: 8.5, taglio: 7.5, maxi: 25.0 },
-    { name: "San Vito", it: "pomodoro, mozzarella, zucchine grigliate, stracchino, prosciutto crudo", en: "tomato, mozzarella, grilled zucchini, stracchino, cured ham", tonda: 10.5, taglio: 8.0, maxi: 32.0 },
-    { name: "Saporita", it: "pomodoro, mozzarella, pancetta stufata, zucchine, aglio, grana", en: "tomato, mozzarella, braised bacon, zucchini, garlic, grana", tonda: 9.0, taglio: 7.5, maxi: 27.0 },
-    { name: "Sergio", it: "pomodoro, mozzarella, cipolla rossa, salsiccia, salame piccante, brie", en: "tomato, mozzarella, red onion, sausage, spicy salami, brie", tonda: 9.5, taglio: 7.5, maxi: 29.0 },
-    { name: "Sorriso", it: "pomodoro, mozzarella, patate al forno, funghi porcini, salame piccante, philadelphia", en: "tomato, mozzarella, roasted potatoes, porcini, spicy salami, cream cheese", tonda: 9.5, taglio: 7.5, maxi: 29.0 },
-    { name: "Tedesca", it: "pomodoro, mozzarella, cipolla rossa, salame piccante, acciughe, capperi, olive nere, aglio, origano", en: "tomato, mozzarella, red onion, spicy salami, anchovies, capers, black olives, garlic, oregano", tonda: 9.5, taglio: 7.5, maxi: 29.0 },
-    { name: "Tirolese", it: "pomodoro, mozzarella, patate al forno, brie, speck", en: "tomato, mozzarella, roasted potatoes, brie, speck", tonda: 10.5, taglio: 7.5, maxi: 32.0 },
-    { name: "Topo", it: "pomodoro, mozzarella, tonno, fajitas di pollo*", en: "tomato, mozzarella, tuna, chicken fajitas*", tonda: 8.5, taglio: 7.5, maxi: 26.0 },
-    { name: "Trevisana", it: "pomodoro, mozzarella, radicchio rosso, brie, grana", en: "tomato, mozzarella, red radicchio, brie, grana", tonda: 9.0, taglio: 7.5, maxi: 27.0 },
-    { name: "Vale", it: "pomodoro, mozzarella, radicchio rosso, salame piccante, philadelphia, grana", en: "tomato, mozzarella, red radicchio, spicy salami, cream cheese, grana", tonda: 9.5, taglio: 7.5, maxi: 29.0 },
-    { name: "Vallaon", it: "pomodoro, mozzarella, champignon, pancetta stufata, scamorza", en: "tomato, mozzarella, mushrooms, braised bacon, scamorza", tonda: 9.5, taglio: 7.5, maxi: 29.0 },
-    { name: "Valtellina", it: "pomodoro, mozzarella, bresaola, rucola, grana a scaglie", en: "tomato, mozzarella, bresaola, rocket, grana flakes", tonda: 10.5, taglio: 7.5, maxi: 32.0 },
-    { name: "Zingara", it: "pomodoro, mozzarella, grana, emmental, cipolla rossa, peperoni grigliati", en: "tomato, mozzarella, grana, emmental, red onion, grilled peppers", tonda: 9.0, taglio: 7.5, maxi: 27.0 },
-    { name: "Zola e Crudo", it: "pomodoro, mozzarella, gorgonzola, prosciutto crudo", en: "tomato, mozzarella, gorgonzola, cured ham", tonda: 10.0, taglio: 8.0, maxi: 32.0 },
+  storiche: [
+    { name: "Fresca", it: "Base di pasta farcita a crudo, mozzarella di bufala, pomorini Cirio, rucola, olio EVO", en: "Cold-topped base, buffalo mozzarella, Cirio cherry tomatoes, rocket, EVO oil", tonda: 8.5, taglio: null, maxi: null },
+    { name: "Parmigiana", it: "Polpa di pomodoro, fior di latte, melanzane al forno, Grana Padano DOP grattugiato, basilico fresco", en: "Tomato pulp, fior di latte, roasted aubergines, grated Grana Padano DOP, fresh basil", tonda: 8.5, taglio: null, maxi: 26.0 },
+    { name: "Delicata", it: "Polpa di pomodoro, fior di latte, zucchine, stracchino, basilico fresco", en: "Tomato pulp, fior di latte, zucchini, stracchino cheese, fresh basil", tonda: 9.0, taglio: null, maxi: 29.0 },
+    { name: "Estate", it: "Polpa di pomodoro, mozzarella di bufala, pomorini Cirio, rucola", en: "Tomato pulp, buffalo mozzarella, Cirio cherry tomatoes, rocket", tonda: 9.5, taglio: null, maxi: 30.0 },
+    { name: "Gustosa", it: "Fior di latte, patate dorate al forno, cipolla rossa caramellata, tastasal, gorgonzola", en: "Fior di latte, golden roasted potatoes, caramelized red onion, tastasal, gorgonzola", tonda: 9.5, taglio: null, maxi: 30.0 },
+    { name: "Tirolese", it: "Polpa di pomodoro, fior di latte, patate dorate al forno, Monte Veronese, funghi porcini, speck in cottura", en: "Tomato pulp, fior di latte, golden roasted potatoes, Monte Veronese cheese, porcini mushrooms, baked speck", tonda: 10.5, taglio: null, maxi: 34.0 },
+    { name: "Valtellina", it: "Polpa di pomodoro, fior di latte, bresaola, rucola, scaglie di Grana Padano DOP", en: "Tomato pulp, fior di latte, bresaola, rocket, Grana Padano DOP flakes", tonda: 10.0, taglio: null, maxi: 32.0 },
+    { name: "Hellas", it: "Polpa di pomodoro, fior di latte, prosciutto cotto, patate dorate al forno, zucchine, stracchino", en: "Tomato pulp, fior di latte, cooked ham, golden roasted potatoes, zucchini, stracchino cheese", tonda: 10.0, taglio: null, maxi: 32.0 },
+    { name: "Kevin", it: "Polpa di pomodoro, fior di latte, patate dorate al forno, tastasal, Philadelphia", en: "Tomato pulp, fior di latte, golden roasted potatoes, tastasal, cream cheese", tonda: 9.5, taglio: null, maxi: 30.0 },
+    { name: "Mauri", it: "Polpa di pomodoro, fior di latte, prosciutto cotto, tastasal, gorgonzola, ricotta fresca, Grana Padano DOP grattugiato, origano Wiberg", en: "Tomato pulp, fior di latte, cooked ham, tastasal, gorgonzola, fresh ricotta, grated Grana Padano DOP, Wiberg oregano", tonda: 10.5, taglio: null, maxi: 34.0 },
+    { name: "Adriana", it: "Polpa di pomodoro, fior di latte, melanzane al forno, champignon freschi, Philadelphia", en: "Tomato pulp, fior di latte, roasted aubergines, fresh champignon, cream cheese", tonda: 9.0, taglio: null, maxi: 29.0 },
+    { name: "Alessandro", it: "Polpa di pomodoro, fior di latte, funghi porcini, speck, scaglie di Grana Padano DOP", en: "Tomato pulp, fior di latte, porcini mushrooms, speck, Grana Padano DOP flakes", tonda: 10.0, taglio: null, maxi: 32.0 },
+    { name: "Americana", it: "Polpa di pomodoro, fior di latte, würstel, patatine fritte", en: "Tomato pulp, fior di latte, hot dog, french fries", tonda: 8.5, taglio: null, maxi: 27.0 },
+    { name: "Angelika", it: "Polpa di pomodoro, fior di latte, zucchine, Philadelphia, salamino piccante, pomodorini Cirio", en: "Tomato pulp, fior di latte, zucchini, cream cheese, spicy salami, Cirio cherry tomatoes", tonda: 10.0, taglio: null, maxi: 32.0 },
+    { name: "Casanova", it: "Polpa di pomodoro, fior di latte, melanzane al forno, funghi porcini, salamino piccante, scaglie di Grana Padano DOP", en: "Tomato pulp, fior di latte, roasted aubergines, porcini mushrooms, spicy salami, Grana Padano DOP flakes", tonda: 10.5, taglio: null, maxi: 34.0 },
+    { name: "Contessa", it: "Polpa di pomodoro, fior di latte, cipolla rossa di Tropea, zucchine, tastasal, ricotta fresca", en: "Tomato pulp, fior di latte, Tropea red onion, zucchini, tastasal, fresh ricotta", tonda: 9.5, taglio: null, maxi: 30.0 },
+    { name: "Daniele", it: "Polpa di pomodoro, fior di latte, gorgonzola, cipolla rossa caramellata, speck in cottura", en: "Tomato pulp, fior di latte, gorgonzola, caramelized red onion, baked speck", tonda: 9.5, taglio: null, maxi: 30.0 },
+    { name: "Sergio", it: "Polpa di pomodoro, fior di latte, cipolla rossa caramellata, tastasal, salame piccante, Monte Veronese", en: "Tomato pulp, fior di latte, caramelized red onion, tastasal, spicy salami, Monte Veronese cheese", tonda: 10.5, taglio: null, maxi: 32.0 },
   ],
-  bianche: [
-    { name: "Duchessa", it: "mozzarella, patate al forno, pancetta stufata", en: "mozzarella, roasted potatoes, braised bacon", tonda: 8.0, taglio: 7.5, maxi: 24.0 },
-    { name: "Prelibata", it: "mozzarella, prosciutto crudo, stracciatella, pesto genovese, pomodori secchi", en: "mozzarella, cured ham, stracciatella, Genoese pesto, sun-dried tomatoes", tonda: 10.5, taglio: 8.0, maxi: 32.0 },
-    { name: "Eka", it: "mozzarella, crema ai carciofi, patate al forno, salsiccia, carciofi, philadelphia", en: "mozzarella, artichoke cream, roasted potatoes, sausage, artichokes, cream cheese", tonda: 9.5, taglio: 7.5, maxi: 29.0 },
-    { name: "Fresca", it: "base di pasta farcita a crudo con pomodorini cirio, bufala, rucola e olio di oliva", en: "cold-topped base with cherry tomatoes, buffalo mozzarella, rocket and olive oil", tonda: 8.0, taglio: 7.5, maxi: 25.0 },
-    { name: "Gustosa", it: "mozzarella, patate al forno, cipolla rossa, salsiccia, gorgonzola, pancetta stufata", en: "mozzarella, roasted potatoes, red onion, sausage, gorgonzola, braised bacon", tonda: 10.0, taglio: 8.0, maxi: 30.0 },
-    { name: "Longiar", it: "mozzarella, champignon, melanzane, taleggio, salsa tartufo*, grana", en: "mozzarella, mushrooms, aubergine, taleggio, truffle sauce*, grana", tonda: 9.0, taglio: 7.5, maxi: 27.0 },
-    { name: "Mastella", it: "mozzarella, melanzane, salsa tartufo*, grana", en: "mozzarella, aubergine, truffle sauce*, grana", tonda: 8.0, taglio: 7.5, maxi: 24.0 },
-    { name: "Martina", it: "mozzarella, patate al forno, zucchine grigliate, pancetta stufata, brie", en: "mozzarella, roasted potatoes, grilled zucchini, braised bacon, brie", tonda: 9.5, taglio: 7.5, maxi: 29.0 },
-    { name: "Mavi", it: "pasta integrale, mozzarella, zucchine, porcini, brie, speck", en: "wholewheat dough, mozzarella, zucchini, porcini, brie, speck", tonda: 10.5, taglio: 7.5, maxi: 32.0 },
-    { name: "Monte Galetto", it: "mozzarella, patate al forno, fajitas di pollo*", en: "mozzarella, roasted potatoes, chicken fajitas*", tonda: 8.5, taglio: 7.5, maxi: 26.0 },
-    { name: "Tartufo", it: "mozzarella, salsa tartufo*, grana", en: "mozzarella, truffle sauce*, grana", tonda: 7.5, taglio: 7.5, maxi: 23.0 },
-    { name: "Yle", it: "mozzarella, patate al forno, prosciutto cotto, zucchine, brie, gorgonzola", en: "mozzarella, roasted potatoes, cooked ham, zucchini, brie, gorgonzola", tonda: 9.5, taglio: 7.5, maxi: 29.0 },
+  specialita: [
+    { name: "Bassone", it: "Polpa di pomodoro, filetti di acciughe, capperi, olive Leccino denocciolate, crema di burrata pugliese, basilico fresco, origano Wiberg", en: "Tomato pulp, anchovy fillets, capers, pitted Leccino olives, Apulian burrata cream, fresh basil, Wiberg oregano", tonda: 10.0, taglio: null, maxi: 32.0 },
+    { name: "Balconi", it: "Fior di latte, Monte Veronese, speck in cottura, ricotta fresca, noci dorate al forno, miele di Acacia", en: "Fior di latte, Monte Veronese cheese, baked speck, fresh ricotta, golden roasted walnuts, Acacia honey", tonda: 10.5, taglio: null, maxi: 33.0 },
+    { name: "Bussolengo", it: "Fior di latte, cremoso di zucca, tastasal, funghi porcini, scaglie di Grana Padano DOP", en: "Fior di latte, pumpkin cream, tastasal, porcini mushrooms, Grana Padano DOP flakes", tonda: 10.5, taglio: null, maxi: 33.0 },
+    { name: "Pescantina", it: "Polpa di pomodoro, fior di latte, radicchio stufato al vino, Philadelphia, gorgonzola", en: "Tomato pulp, fior di latte, wine-stewed radicchio, cream cheese, gorgonzola", tonda: 10.0, taglio: null, maxi: 32.0 },
+    { name: "San Francisco", it: "Polpa di pomodoro, fior di latte, funghi porcini, gorgonzola, tastasal, prosciutto crudo stagionato", en: "Tomato pulp, fior di latte, porcini mushrooms, gorgonzola, tastasal, aged cured ham", tonda: 11.0, taglio: null, maxi: 35.0 },
+    { name: "San Vito al Mantico", it: "Fior di latte, friarielli, tastasal, Monte Veronese", en: "Fior di latte, friarielli, tastasal, Monte Veronese cheese", tonda: 9.5, taglio: null, maxi: 31.0 },
+    { name: "TG San Vi", it: "Polpa di pomodoro, fior di latte, salamino piccante, melanzane al forno, cipolla rossa caramellata, crema di burrata pugliese", en: "Tomato pulp, fior di latte, spicy salami, roasted aubergines, caramelized red onion, Apulian burrata cream", tonda: 10.5, taglio: null, maxi: 34.0 },
   ],
-  pesce: [
-    { name: "Garberia", it: "pomodoro, mozzarella, zucchine, philadelphia, pesce spada affumicato*", en: "tomato, mozzarella, zucchini, cream cheese, smoked swordfish*", tonda: 12.0, taglio: null, maxi: 40.0 },
-    { name: "Oceano", it: "pomodoro, mozzarella, mazzancolle tropicali*, mascarpone, rucola", en: "tomato, mozzarella, tropical prawns*, mascarpone, rocket", tonda: 10.5, taglio: null, maxi: 35.0 },
-    { name: "Sgarbella", it: "mozzarella, pesce spada affumicato*, mascarpone, rucola", en: "mozzarella, smoked swordfish*, mascarpone, rocket", tonda: 12.0, taglio: null, maxi: 40.0 },
+  aggiunte: [
+    { name: "Doppia Pasta", it: "Aggiunta doppia pasta", en: "Double dough", tonda: 1.5, taglio: null, maxi: null },
+    { name: "Abbondante", it: "Aggiunta dose abbondante di ingredienti", en: "Extra toppings portion", tonda: 2.5, taglio: null, maxi: 8.0 },
+    { name: "Impasto Speciale", it: "Richiesta impasto speciale", en: "Special dough request", tonda: 1.0, taglio: null, maxi: 4.0 },
+    { name: "Aggiunte Classiche", it: "Aggiunta ingredienti classici", en: "Classic toppings addition", tonda: 1.5, taglio: null, maxi: 5.0 },
+    { name: "Aggiunte Premium", it: "Crema di burrata pugliese, crudo stagionato, speck, bufala, funghi porcini", en: "Apulian burrata cream, aged cured ham, speck, buffalo mozzarella, porcini", tonda: 2.5, taglio: null, maxi: 8.0 },
+    { name: "Mozzarella Senza Lattosio", it: "Sostituzione con mozzarella senza lattosio", en: "Lactose-free mozzarella substitution", tonda: 1.5, taglio: null, maxi: 5.0 },
+    { name: "Riduzioni Ingredienti", it: "Rimozione di uno o più ingredienti", en: "Removal of one or more toppings", tonda: -0.5, taglio: null, maxi: -2.0 },
+    { name: "Riduzione Pizza Baby", it: "Formato pizza ridotto per bambini", en: "Reduced pizza size for children", tonda: -0.5, taglio: null, maxi: null },
   ],
-  bambini: [
-    { name: "Wurstel", it: "pomodoro, mozzarella, wurstel", en: "tomato, mozzarella, hot dog", tonda: 7.5, taglio: 7.5, maxi: 23.0 },
-    { name: "Chips", it: "pomodoro, mozzarella, patate fritte*", en: "tomato, mozzarella, french fries*", tonda: 7.5, taglio: 7.5, maxi: 23.0 },
-    { name: "Americana", it: "pomodoro, mozzarella, patate fritte*, wurstel", en: "tomato, mozzarella, french fries*, hot dog", tonda: 8.5, taglio: 7.5, maxi: 26.0 },
-    { name: "Pinocchio", it: "pomodoro, mozzarella, patate fritte*, prosciutto cotto", en: "tomato, mozzarella, french fries*, cooked ham", tonda: 8.5, taglio: 7.5, maxi: 26.0 },
-    { name: "Lucignolo", it: "pomodoro, mozzarella, patate fritte*, philadelphia", en: "tomato, mozzarella, french fries*, cream cheese", tonda: 8.5, taglio: 7.5, maxi: 26.0 },
-    { name: "Grillo", it: "pomodoro, mozzarella, tonno, philadelphia", en: "tomato, mozzarella, tuna, cream cheese", tonda: 8.5, taglio: 7.5, maxi: 26.0 },
-  ],
-  dolci: [
-    { name: "Tiramisù", it: "dolce al caffè con mascarpone e savoiardi", en: "classic coffee & mascarpone dessert", tonda: 3.0, taglio: null, maxi: null },
-  ],
-  bevande: [
-    { name: "Bibita in Lattina 0,33 L", it: "bibite varie", en: "assorted soft drinks", tonda: 2.5, taglio: null, maxi: null },
-    { name: "Bibita in Bottiglia 1,5 L", it: "bibite varie", en: "assorted soft drinks", tonda: 3.5, taglio: null, maxi: null },
-    { name: "Acqua 0,5 L", it: "naturale o frizzante", en: "still or sparkling", tonda: 1.0, taglio: null, maxi: null },
-    { name: "Birra in Lattina", it: "birra", en: "beer", tonda: 2.5, taglio: null, maxi: null },
-    { name: "Birra in Bottiglia 0,66 L", it: "birra", en: "beer", tonda: 4.0, taglio: null, maxi: null },
-    { name: "Birra Speciale 0,33 L", it: "birra speciale", en: "specialty beer", tonda: 3.0, taglio: null, maxi: null },
+  bibite: [
+    { name: "Acqua 50cl", it: "Naturale o Frizzante", en: "Still or Sparkling", tonda: 1.5, taglio: null, maxi: null },
+    { name: "Bibite 33cl", it: "In lattina", en: "Canned soft drinks", tonda: 2.5, taglio: null, maxi: null },
+    { name: "Coca Cola 1L", it: "In bottiglia", en: "Bottled", tonda: 4.0, taglio: null, maxi: null },
+    { name: "Coca Cola Zero 1L", it: "In bottiglia", en: "Bottled", tonda: 4.0, taglio: null, maxi: null },
+    { name: "Birra in Bottiglia 33cl", it: "Birra", en: "Beer", tonda: 3.0, taglio: null, maxi: null },
+    { name: "Birra in Bottiglia 66cl", it: "Birra", en: "Beer", tonda: 4.0, taglio: null, maxi: null },
   ],
 };
 
 export const info = {
   name: "Pizzeria San Francisco",
-  address: "Piazzetta Donatori di Sangue, 2, 37012 San Vito Al Mantico VR",
+  address: "Piazzetta Donatori di Sangue, 2, San Vito Al Mantico, Bussolengo (VR)",
   phone: "+39 331 149 2875",
   phoneDisplay: "331 149 2875",
   phoneHref: "tel:+393311492875",
@@ -140,3 +115,4 @@ export const info = {
     { day_it: "Domenica", day_en: "Sunday", slots: ["18:00 – 21:30"] },
   ],
 };
+```
