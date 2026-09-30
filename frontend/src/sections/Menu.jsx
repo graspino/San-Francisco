@@ -71,7 +71,8 @@ function MenuItem({ item, lang, t }) {
 }
 
 export default function Menu({ t, lang }) {
-  const [activeId, setActiveId] = useState("classiche");
+  // Stato iniziale aggiornato per rispecchiare il nuovo ID della categoria principale
+  const [activeId, setActiveId] = useState("classici");
   const [query, setQuery] = useState("");
 
   const handleSelect = (id) => {
