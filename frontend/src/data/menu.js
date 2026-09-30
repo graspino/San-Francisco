@@ -93,4 +93,3 @@ export const info = {
     { day_it: "Domenica", day_en: "Sunday", slots: ["18:00 – 21:30"] },
   ],
 };
-```
