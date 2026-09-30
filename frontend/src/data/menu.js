@@ -1,25 +1,3 @@
-Ecco il file completo e aggiornato con la struttura esatta per il lancio del nuovo menù.
-
-* Le vecchie categorie sono state sostituite con le nuove sezioni: "I Grandi Classici", "Le Nostre Storiche Rivisitate" e "Le Specialità San Francisco".
-
-
-* È stata creata una categoria specifica per "Le Aggiunte" e aggiornata la lista de "Le Bibite".
-
-
-* I prezzi sono stati allineati ai nuovi formati per le varianti Tonda e Maxi. Il valore `taglio` è stato mantenuto a `null` ovunque per non rompere il design dell'interfaccia, in quanto non presente nel listino di ottobre.
-
-
-* Tutti i nuovi ingredienti (come la crema di burrata pugliese, il cremoso di zucca e l'origano Wiberg) sono stati tradotti in inglese per mantenere funzionante il sistema bilingue del sito.
-
-
-
-Copia tutto il blocco di codice qui sotto e incollalo sostituendo interamente il contenuto del tuo file `menu.js` (o `menu.ts`).
-
-```javascript
-// Full menu of Pizzeria San Francisco — updated for October 1st Launch
-// Prices in EUR. When a size is not offered, use null.
-// Sizes: tonda (round pizza), taglio (by the slice), maxi (large family)
-
 export const menuCategories = [
   { id: "classici", it: "I Grandi Classici", en: "The Great Classics" },
   { id: "storiche", it: "Le Nostre Storiche Rivisitate", en: "Historic Revisited" },
